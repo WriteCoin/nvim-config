@@ -44,6 +44,20 @@ return {
   --       require("telescope").load_extension("fzf")
   --     end,
   -- }
+  -- Файловый проводник oil.nvim 
+  -- {
+  --       "stevearc/oil.nvim",
+  --       dependencies = { "nvim-tree/nvim-web-devicons" },
+  --       config = function()
+  --           require("oil").setup({
+  --               -- Опционально: настроить ключи по вкусу
+  --               -- По умолчанию <CR> открывает файл/папку, "-" идёт на уровень выше
+  --           })
+
+  --           -- Аналог вашей старой кнопки для открытия проводника
+  --           vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+  --       end,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
