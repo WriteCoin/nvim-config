@@ -6,7 +6,7 @@ return {
     local ts = require("nvim-treesitter")
 
     -- Устанавливаем парсеры (это асинхронно)
-    ts.install({ "lua", "vim", "vimdoc", "python", "javascript", "markdown" })
+    ts.install({ "lua", "vim", "vimdoc", "python", "javascript", "markdown", "commonlisp", "fennel" })
 
     -- Включаем подсветку БЕЗОПАСНО: проверяем, готов ли парсер
     vim.api.nvim_create_autocmd("FileType", {
