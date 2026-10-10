@@ -55,4 +55,3 @@ vim.opt.cursorline = false
 
 -- Подсветка при поиске
 -- vim.opt.hlsearch = true
-
