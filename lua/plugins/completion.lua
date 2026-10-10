@@ -1,0 +1,59 @@
+return {
+	{
+		-- Автодополнение
+		"saghen/blink.cmp",
+		event = "InsertEnter",
+		-- main is v2 development (breaking); 1.x release tags ship a prebuilt
+		-- Rust fuzzy matcher, so no build toolchain is needed.
+		version = "1.*",
+		dependencies = {
+			{
+				"L3MON4D3/LuaSnip",
+				version = "2.*",
+				build = "make install_jsregexp",
+			},
+			"folke/lazydev.nvim",
+		},
+		opts = {
+			snippets = { preset = "luasnip" },
+
+			-- Exact replica of the previous nvim-cmp mapping set (including the
+			-- preset.insert keys that came along implicitly).
+			keymap = {
+				preset = "none",
+				["<CR>"] = { "accept", "fallback" },
+				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-n>"] = { "scroll_documentation_down", "fallback" },
+				["<C-p>"] = { "scroll_documentation_up", "fallback" },
+				["<C-h>"] = { "snippet_backward", "fallback" },
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-e>"] = { "cancel", "fallback" },
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+			},
+
+			completion = {
+				-- match cmp's completeopt=menu,menuone,noinsert + confirm{select=true}
+				list = { selection = { preselect = true, auto_insert = false } },
+				menu = { border = "rounded" },
+				documentation = { auto_show = true, window = { border = "rounded" } },
+			},
+
+			sources = {
+				default = { "lsp", "path", "snippets" },
+				per_filetype = {
+					lua = { inherit_defaults = true, "lazydev" },
+				},
+				providers = {
+					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+				},
+			},
+
+			-- keep the native wildmenu cmdline (blink's cmdline module remaps
+			-- Tab/arrows in ':' — parity opt-in for later)
+			cmdline = { enabled = false },
+
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+		},
+	},
+}
