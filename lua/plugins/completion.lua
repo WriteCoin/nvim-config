@@ -23,13 +23,23 @@ return {
 				preset = "none",
 				["<CR>"] = { "accept", "fallback" },
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-				["<C-n>"] = { "scroll_documentation_down", "fallback" },
-				["<C-p>"] = { "scroll_documentation_up", "fallback" },
-				["<C-h>"] = { "snippet_backward", "fallback" },
 				["<C-y>"] = { "accept", "fallback" },
 				["<C-e>"] = { "cancel", "fallback" },
-				["<C-b>"] = { "scroll_documentation_up", "fallback" },
-				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+				-- прокрутка документации
+				["<C-n>"] = { "scroll_documentation_down", "fallback" },
+				["<C-p>"] = { "scroll_documentation_up", "fallback" },
+
+				-- навигация по списку
+				["<C-b>"] = { "select_prev", "fallback" },
+				["<C-f>"] = { "select_next", "fallback" },
+				["<Up>"] = { "select_prev", "fallback" },
+				["<Down>"] = { "select_next", "fallback" },
+
+				-- сниппеты
+				["<C-h>"] = { "snippet_backward", "fallback" },
+				["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
 			},
 
 			completion = {
