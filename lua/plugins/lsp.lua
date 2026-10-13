@@ -15,6 +15,7 @@ return {
 			local servers = {
 				"clangd",
 				"lua_ls",
+				"tinymist",
 			}
 
 			require("mason").setup()
@@ -22,6 +23,7 @@ return {
 			local ensure_installed = vim.deepcopy(servers)
 			vim.list_extend(ensure_installed, {
 				"stylua",
+				"typstyle",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -33,4 +35,10 @@ return {
 			-- automatically on Neovim 0.11+ — no manual plumbing needed.
 		end,
 	},
+	-- {
+	-- 	"mason-org/mason.nvim",
+	-- 	opts = {
+	-- 		ensure_installed = { "tinymist" },
+	-- 	},
+	-- },
 }
