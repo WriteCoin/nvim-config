@@ -79,6 +79,7 @@ return {
 				default = {
 					-- Используется консольная программа Translate Shell, ее необходимо установить в системе
 					command = "translate_shell",
+					output = "insert",
 				},
 				preset = {
 					output = {
@@ -107,14 +108,28 @@ return {
 			})
 
 			-- Привязка для визуального режима
-			vim.keymap.set("v", "<leader>tw", ":Translate RU -output=split -split=vsplit<CR>", {
+			vim.keymap.set("v", "<leader>tw", ":Translate RU -output=split<CR>", {
 				desc = "Перевести и вставить в окне с сохранением позиции буфера",
 			})
 			vim.keymap.set(
 				"v",
 				"<leader>tr",
 				":Translate RU -output=register<CR>",
-				{ desc = "Перевести и вставить рядом" }
+				{ desc = "Перевести и вставить в регистр" }
+			)
+
+			vim.keymap.set(
+				"v",
+				"<leader>ti",
+				":Translate RU -output=insert<CR>",
+				{ desc = "Перевести и вставить на следующей строке в буфере" }
+			)
+
+			vim.keymap.set(
+				"v",
+				"<leader>tf",
+				":Translate RU -output=floating<CR>",
+				{ desc = "Перевести и показать перевод в плавающем окне" }
 			)
 		end,
 	},
