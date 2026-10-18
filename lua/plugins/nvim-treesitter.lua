@@ -12,6 +12,8 @@ return {
 			"vimdoc",
 			"python",
 			"javascript",
+			"typescript",
+			"tsx",
 			"markdown",
 			"markdown_inline",
 			"commonlisp",

@@ -30,6 +30,10 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rustfmt", lsp_format = "fallback" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
 			},
 		},
 	},
