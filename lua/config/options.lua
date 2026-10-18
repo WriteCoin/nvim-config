@@ -55,3 +55,6 @@ vim.opt.cursorline = false
 
 -- Подсветка при поиске
 -- vim.opt.hlsearch = true
+
+-- Установка целевого языка для переводчика
+-- vim.g.translator_target_lang = "ru"
