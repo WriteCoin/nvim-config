@@ -58,3 +58,7 @@ vim.opt.cursorline = false
 
 -- Установка целевого языка для переводчика
 -- vim.g.translator_target_lang = "ru"
+
+-- Проверка орфографии (по умолчанию отключена; переключение через `<leader>sp`, настроено в keymaps.lua)
+vim.opt.spell = true
+vim.opt.spelllang = "en_us,ru"

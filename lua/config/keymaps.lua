@@ -1,4 +1,4 @@
--- Перейти в классический проводник neovim
+-- Перейти в классический проводник Neovim
 vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
 
 -- Перейти в проводник Neotree
@@ -38,3 +38,13 @@ end, { desc = "Open terminal" })
 
 -- Открыть терминал в новой вкладке
 vim.keymap.set("n", "<leader>tT", "<cmd>tabnew<cr><cmd>terminal<cr>", { desc = "New terminal in new tab" })
+
+-- Орфография
+vim.keymap.set(
+	"n",
+	"<leader>sp",
+	":set spell!<CR>",
+	{ desc = "Переключить проверку написания" }
+)
+vim.keymap.set("n", "<leader>se", "]s", { desc = "К следующей опечатке" })
+vim.keymap.set("n", "<leader>sf", "z=", { desc = "Предложения по написанию" })
