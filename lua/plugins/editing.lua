@@ -7,6 +7,26 @@ return {
 			vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
 		end,
 	},
+	-- Автоматическое добавление закрывающей скобки (как в редакторах VS Code и IDE)
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
+	-- Дополнительные действия с оборачиванием синтаксических элементов
+	{
+		"kylechui/nvim-surround",
+		version = "^4.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		-- Optional: See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
+		-- config = function()
+		--     require("nvim-surround").setup({
+		--         -- Put your configuration here
+		--     })
+		-- end
+	},
 	-- позволяет повторять сложные действия `vim-sexp` с помощью команды `.`
 	{
 		"tpope/vim-repeat",

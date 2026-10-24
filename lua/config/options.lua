@@ -62,3 +62,6 @@ vim.opt.cursorline = false
 -- Проверка орфографии (по умолчанию отключена; переключение через `<leader>sp`, настроено в keymaps.lua)
 vim.opt.spell = true
 vim.opt.spelllang = "en_us,ru"
+
+-- Метод отображения парных скобок (в плавающем окне)
+vim.g.matchup_matchparen_offscreen = { method = "popup" }
