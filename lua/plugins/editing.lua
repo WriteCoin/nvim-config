@@ -7,6 +7,13 @@ return {
 			vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
 		end,
 	},
+	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+	},
 	-- Автоматическое добавление закрывающей скобки (как в редакторах VS Code и IDE)
 	{
 		"windwp/nvim-autopairs",

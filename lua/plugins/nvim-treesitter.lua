@@ -30,5 +30,16 @@ return {
 				pcall(vim.treesitter.start, ev.buf, lang)
 			end,
 		})
+
+		-- require("nvim-treesitter.configs").setup({
+		-- 	highlight = {
+		-- 		enable = true,
+		-- 		additional_vim_regex_highlighting = { "racket" },
+		-- 	},
+		-- })
 	end,
+	-- highlight = {
+	-- 	enable = true,
+	-- 	additional_vim_regex_highlighting = { "racket" },
+	-- },
 }
