@@ -22,7 +22,7 @@ return {
 					return nil
 				else
 					return {
-						timeout_ms = 500,
+						timeout_ms = 5000,
 						lsp_format = "fallback",
 					}
 				end
@@ -34,6 +34,15 @@ return {
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
+				racket = { "raco_fmt" },
+			},
+			formatters = {
+				-- Определение пользовательского форматтера
+				raco_fmt = {
+					command = "raco",
+					args = { "fmt" }, -- raco fmt без аргументов читает из stdin
+					stdin = true, -- Сообщить conform, что нужно передавать код через stdin
+				},
 			},
 		},
 	},
