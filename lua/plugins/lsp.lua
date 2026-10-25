@@ -18,11 +18,18 @@ return {
 				"tinymist",
 				"ts_ls",
 				"eslint",
+				"racket_langserver",
 			}
 
 			require("mason").setup()
 
 			local ensure_installed = vim.deepcopy(servers)
+			for i, name in ipairs(ensure_installed) do
+				if name == "racket_langserver" then
+					table.remove(ensure_installed, i)
+					break
+				end
+			end
 			vim.list_extend(ensure_installed, {
 				"stylua",
 				"typstyle",
@@ -36,6 +43,9 @@ return {
 
 			-- Completion capabilities: blink.cmp injects its own into vim.lsp.config
 			-- automatically on Neovim 0.11+ — no manual plumbing needed.
+
+			-- Ручная активация Racket LSP
+			vim.lsp.enable("racket_langserver")
 		end,
 	},
 	-- {
