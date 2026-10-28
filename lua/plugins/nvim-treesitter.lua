@@ -37,6 +37,12 @@ return {
 		-- 		additional_vim_regex_highlighting = { "racket" },
 		-- 	},
 		-- })
+
+		-- Инкрементное выделение встроено в Treesitter с версии 0.12
+		vim.keymap.set("n", "<leader>ss", "van", { remap = true, desc = "TS [S]election [s]tart" })
+		vim.keymap.set("x", "<leader>si", "an", { remap = true, desc = "TS selection [i]ncrement" })
+		vim.keymap.set("x", "<leader>sc", "an", { remap = true, desc = "TS selection s[c]ope (approx)" })
+		vim.keymap.set("x", "<leader>sd", "in", { remap = true, desc = "TS selection [d]ecrement" })
 	end,
 	-- highlight = {
 	-- 	enable = true,
