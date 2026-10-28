@@ -100,6 +100,11 @@ return {
 			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+			{
+				"<leader>/",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				{ desc = "Нечеткий поиск в текущем буфере" },
+			},
 		},
 	},
 }

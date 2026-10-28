@@ -19,6 +19,7 @@ return {
 				"ts_ls",
 				"eslint",
 				"racket_langserver",
+				"rust_analyzer",
 			}
 
 			require("mason").setup()

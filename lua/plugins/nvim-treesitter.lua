@@ -7,7 +7,12 @@ return {
 
 		-- Устанавливаем парсеры (это асинхронно)
 		ts.install({
+			"bash",
+			"c",
+			"diff",
+			"html",
 			"lua",
+			"luadoc",
 			"vim",
 			"vimdoc",
 			"python",
@@ -20,6 +25,7 @@ return {
 			"fennel",
 			"typst",
 			"racket",
+			"rust",
 		})
 
 		-- Включаем подсветку БЕЗОПАСНО: проверяем, готов ли парсер

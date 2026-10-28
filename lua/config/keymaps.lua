@@ -48,3 +48,10 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>se", "]s", { desc = "К следующей опечатке" })
 vim.keymap.set("n", "<leader>sf", "z=", { desc = "Предложения по написанию" })
+
+-- Переключение wrap/nowrap по нажатию <leader>w
+vim.keymap.set("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = true, desc = "Toggle Wrap" })
+
+-- Диагностика и применение действий к коду
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic" })
