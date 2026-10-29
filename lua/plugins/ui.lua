@@ -84,4 +84,59 @@ return {
 
 	--     end,
 	-- }
+	-- Новый интерфейс для вкладок буферов
+	-- Ошибка несовместимости с ночной версией
+	-- {
+	-- 	"romgrk/barbar.nvim",
+	-- 	dependencies = {
+	-- 		"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+	-- 		"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+	-- 	},
+	-- 	init = function()
+	-- 		vim.g.barbar_auto_setup = false
+	-- 	end,
+	-- 	opts = {
+	-- 		-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+	-- 		-- animation = true,
+	-- 		-- insert_at_start = true,
+	-- 		-- …etc.
+	-- 	},
+	-- 	version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	-- },
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("bufferline").setup({})
+
+			-- Пример: использование Alt+h/l для переключения буферов
+			vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Предыдущий буфер" })
+			vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Следующий буфер" })
+			vim.keymap.set(
+				"n",
+				"<leader>bp",
+				"<cmd>BufferLineTogglePin<CR>",
+				{ desc = "Закрепить/открепить буфер" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>bo",
+				"<cmd>BufferLineCloseOthers<CR>",
+				{ desc = "Закрыть все буферы, кроме текущего" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>br",
+				"<cmd>BufferLineCloseRight<CR>",
+				{ desc = "Закрыть буферы справа" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>bl",
+				"<cmd>BufferLineCloseLeft<CR>",
+				{ desc = "Закрыть буферы слева" }
+			)
+		end,
+	},
 }
