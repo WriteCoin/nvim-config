@@ -139,4 +139,21 @@ return {
 			)
 		end,
 	},
+	{
+		"ojroques/nvim-bufdel",
+		config = function()
+			require("bufdel").setup({
+				next = "tabs",
+				quit = true, -- quit Neovim when last buffer is closed
+			})
+
+			vim.keymap.set("n", "<leader>bd", "<cmd>BufDel<CR>", { desc = "Закрыть буфер" })
+			vim.keymap.set(
+				"n",
+				"<leader>baq",
+				"<cmd>BufDel!<CR>",
+				{ noremap = true, desc = "Закрыть буфер без сохранения изменений" }
+			)
+		end,
+	},
 }
