@@ -33,7 +33,8 @@ vim.keymap.set("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "New tab" })
 -- Открыть терминал в нижнем сплите
 vim.keymap.set("n", "<leader>tt", function()
 	vim.cmd("split | terminal")
-	vim.cmd("startinsert") -- сразу войти в terminal-mode
+	-- не заходить в terminal-mode
+	-- vim.cmd("startinsert") -- сразу войти в terminal-mode
 end, { desc = "Open terminal" })
 
 -- Открыть терминал в новой вкладке
