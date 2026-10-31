@@ -137,6 +137,12 @@ return {
 				"<cmd>BufferLineCloseLeft<CR>",
 				{ desc = "Закрыть буферы слева" }
 			)
+			vim.keymap.set(
+				"n",
+				"<leader>bc",
+				"<cmd>BufferLinePick<CR>",
+				{ desc = "Переключать буферы по подсказке" }
+			)
 		end,
 	},
 	{
