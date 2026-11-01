@@ -1,5 +1,5 @@
 -- Перейти в классический проводник Neovim
-vim.keymap.set("n", "<leader>E", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Классический проводник Neovim" })
 
 -- Перейти в проводник Neotree
 -- vim.keymap.set('n', '<leader>e', ':Neotree toggle reveal<CR>', { desc = 'Toggle Neo-tree' })
@@ -16,6 +16,12 @@ vim.keymap.set("v", "K", ":'<,'>move '<-2<CR>gv")
 -- vim.o.langmap = "йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,э;,яz,чx,сc,мv,иb,тn,ьm,б,,ю."
 -- Включаем опцию, чтобы langmap работал
 -- vim.o.langremap = true
+
+-- Перемещение между окнами с помощью Ctrl + h/j/k/l
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Выход из Terminal mode по Esc
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Выйти из Terminal mode" })

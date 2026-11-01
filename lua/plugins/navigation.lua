@@ -107,4 +107,24 @@ return {
 			},
 		},
 	},
+	{
+		"crispgm/telescope-heading.nvim",
+		config = function()
+			local telescope = require("telescope")
+			telescope.setup({
+				extensions = {
+					heading = {
+						treesitter = true,
+						picker_opts = {
+							sorting_strategy = "ascending",
+						},
+					},
+				},
+			})
+			telescope.load_extension("heading")
+		end,
+		keys = {
+			{ "<leader>h", "<cmd>Telescope heading<cr>", desc = "Навигация по заголовкам" },
+		},
+	},
 }
