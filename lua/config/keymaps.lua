@@ -62,3 +62,10 @@ vim.keymap.set("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = tr
 -- Диагностика и применение действий к коду
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
+-- Отключить стандартное поведение пробела
+-- vim.keymap.set("n", "<leader>g", "<Nop>", { silent = true, desc = "Disable leader+g" })
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Отключить стандартное действие привязки `gx` для плагина url-open, открытия ссылок под курсором
+vim.g.netrw_nogx = 1
