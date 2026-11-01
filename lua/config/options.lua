@@ -65,3 +65,15 @@ vim.opt.spelllang = "en_us,ru"
 
 -- Метод отображения парных скобок (в плавающем окне)
 vim.g.matchup_matchparen_offscreen = { method = "popup" }
+
+-- Автоматический вызов дополнения при вводе команд
+-- vim.api.nvim_create_autocmd("CmdlineChanged", {
+-- 	pattern = { ":", "/", "?" },
+-- 	callback = function()
+-- 		vim.fn.wildtrigger()
+-- 	end,
+-- })
+--
+-- -- Отображение результатов в виде всплывающего меню (pum)
+-- vim.opt.wildmode = "noselect:lastused,full"
+-- vim.opt.wildoptions = "pum"

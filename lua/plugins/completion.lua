@@ -45,6 +45,7 @@ return {
 			completion = {
 				-- match cmp's completeopt=menu,menuone,noinsert + confirm{select=true}
 				list = { selection = { preselect = true, auto_insert = false } },
+				-- menu = { border = "rounded", direction_priority = { "n", "s" } },
 				menu = { border = "rounded" },
 				documentation = { auto_show = true, window = { border = "rounded" } },
 			},
@@ -57,13 +58,53 @@ return {
 				providers = {
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				},
+
+				-- cmdline = {
+				-- 	completion = {
+				-- 		menu = { auto_show = true },
+				-- 	},
+				-- },
+				-- min_keyword_length = function(ctx)
+				-- 	if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+				-- 		return 3
+				-- 	end
+				-- 	return 0
+				-- end,
+			},
+
+			cmdline = {
+				completion = {
+					menu = { auto_show = true },
+					list = {
+						selection = {
+							preselect = false,
+							auto_insert = false,
+						},
+					},
+				},
+				-- 'buffer' добавит слова из открытых буферов
+				sources = { "cmdline", "buffer" },
+				-- min_keyword_length = 3,
+				-- min_keyword_length = function(ctx)
+				-- 	if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+				-- 		return 3
+				-- 	end
+				-- 	return 0
+				-- end,
+
+				keymap = {
+					["<Tab>"] = { "select_next", "fallback" },
+					["<S-Tab>"] = { "select_prev", "fallback" },
+					["<CR>"] = { "accept_and_enter", "fallback" },
+				},
 			},
 
 			-- keep the native wildmenu cmdline (blink's cmdline module remaps
 			-- Tab/arrows in ':' — parity opt-in for later)
-			cmdline = { enabled = false },
+			-- cmdline = { enabled = false },
 
 			fuzzy = { implementation = "prefer_rust_with_warning" },
+			-- fuzzy = { implementation = "lua" },
 		},
 	},
 }

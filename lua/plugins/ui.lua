@@ -58,6 +58,8 @@ return {
 						enabled = true, -- автофокус на текущем файле
 					},
 					use_libuv_file_watcher = true, -- автообновление через uv
+					-- Отключить следование Neo-tree за `cwd`
+					bind_to_cwd = false,
 				},
 			})
 		end,
@@ -103,6 +105,7 @@ return {
 	-- 	},
 	-- 	version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	-- },
+	-- Плагин для нового интерфейса вкладок
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -145,6 +148,7 @@ return {
 			)
 		end,
 	},
+	-- Плагин к bufferline для дополнительных привязок по закрытию вкладок
 	{
 		"ojroques/nvim-bufdel",
 		config = function()
@@ -162,4 +166,23 @@ return {
 			)
 		end,
 	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		-- ваши настройки noice
+	-- 	},
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		-- nvim-notify нужен только если вы хотите использовать вид "notify"
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- 	config = function()
+	-- 		require("noice").setup({
+	-- 			cmdline = { enabled = false },
+	-- 			messages = { enabled = false },
+	-- 			notify = { enabled = true },
+	-- 		})
+	-- 	end,
+	-- },
 }
