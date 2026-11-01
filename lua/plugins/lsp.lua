@@ -48,6 +48,15 @@ return {
 
 			-- Ручная активация Racket LSP
 			vim.lsp.enable("racket_langserver")
+
+			-- Отключение семантических токенов (подсветки) для LSP markdown_oxide
+			-- vim.lsp.config("markdown_oxide", {
+			-- 	-- ... другие настройки ...
+			-- 	on_attach = function(client, bufnr)
+			-- 		client.server_capabilities.semanticTokensProvider = nil
+			-- 	end,
+			-- })
+			-- vim.lsp.enable("markdown_oxide")
 		end,
 	},
 	-- {

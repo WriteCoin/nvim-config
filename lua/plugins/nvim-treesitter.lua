@@ -43,7 +43,16 @@ return {
 		-- 		additional_vim_regex_highlighting = { "racket" },
 		-- 	},
 		-- })
-
+		-- Отключить подсветку Treesitter для markdown (сохранив другие функции)
+		-- vim.treesitter.language.register("markdown", "markdown") -- оставить регистрацию
+		-- -- В конфигурации nvim-treesitter отключить highlight для markdown
+		-- require("nvim-treesitter.configs").setup({
+		-- 	highlight = {
+		-- 		enable = true,
+		-- 		disable = { "markdown" }, -- отключить подсветку Treesitter для markdown
+		-- 	},
+		-- })
+		--
 		-- Инкрементное выделение встроено в Treesitter с версии 0.12
 		vim.keymap.set("n", "<leader>ss", "van", { remap = true, desc = "TS [S]election [s]tart" })
 		vim.keymap.set("x", "<leader>si", "an", { remap = true, desc = "TS selection [i]ncrement" })
