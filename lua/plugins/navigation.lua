@@ -140,42 +140,42 @@ return {
 	-- 	config = true,
 	-- },
 	-- Навигация по ссылкам URL, открытие срабатывает с ошибками
-	-- {
-	-- 	"HawkinsT/pathfinder.nvim",
-	-- 	-- Отложенная загрузка, привязки клавиш настраиваются вручную
-	-- 	keys = {
-	-- 		-- Использовать select_url() из pathfinder для выбора ссылки (по умолчанию <leader>gx)
-	-- 		{
-	-- 			"<leader>gx",
-	-- 			function()
-	-- 				require("pathfinder").select_url()
-	-- 			end,
-	-- 			desc = "Pathfinder: выбрать URL",
-	-- 		},
-	-- 		-- Использовать навигационные команды pathfinder для перехода между ссылками
-	-- 		{
-	-- 			"]u",
-	-- 			function()
-	-- 				require("pathfinder").next_url()
-	-- 			end,
-	-- 			desc = "Pathfinder: следующая ссылка",
-	-- 		},
-	-- 		{
-	-- 			"[u",
-	-- 			function()
-	-- 				require("pathfinder").prev_url()
-	-- 			end,
-	-- 			desc = "Pathfinder: предыдущая ссылка",
-	-- 		},
-	-- 	},
-	-- 	config = function()
-	-- 		-- Отключить синхронную проверку URL для повышения скорости и стабильности
-	-- 		require("pathfinder").setup({
-	-- 			validate_urls = false,
-	-- 		})
-	-- 	end,
-	-- 	enabled = false,
-	-- },
+	{
+		"HawkinsT/pathfinder.nvim",
+		-- Отложенная загрузка, привязки клавиш настраиваются вручную
+		keys = {
+			-- Использовать select_url() из pathfinder для выбора ссылки (по умолчанию <leader>gx)
+			{
+				"<leader>gx",
+				function()
+					require("pathfinder").select_url()
+				end,
+				desc = "Pathfinder: выбрать URL",
+			},
+			-- Использовать навигационные команды pathfinder для перехода между ссылками
+			{
+				"]u",
+				function()
+					require("pathfinder").next_url()
+				end,
+				desc = "Pathfinder: следующая ссылка",
+			},
+			{
+				"[u",
+				function()
+					require("pathfinder").prev_url()
+				end,
+				desc = "Pathfinder: предыдущая ссылка",
+			},
+		},
+		config = function()
+			-- Отключить синхронную проверку URL для повышения скорости и стабильности
+			require("pathfinder").setup({
+				validate_urls = false,
+			})
+		end,
+		enabled = false,
+	},
 	-- Открыть URL под курсором
 	{
 		"sontungexpt/url-open",
