@@ -94,18 +94,19 @@ return {
 				end,
 			},
 		},
-		keys = {
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
-			{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
-			{
-				"<leader>/",
-				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
-				{ desc = "Нечеткий поиск в текущем буфере" },
-			},
-		},
+		-- Заменено привязками из fzf-lua
+		-- keys = {
+		-- 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		-- 	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+		-- 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		-- 	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+		-- 	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+		-- 	{
+		-- 		"<leader>/",
+		-- 		"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+		-- 		{ desc = "Нечеткий поиск в текущем буфере" },
+		-- 	},
+		-- },
 	},
 	-- Навигация по заголовкам
 	{
@@ -127,6 +128,74 @@ return {
 		keys = {
 			{ "<leader>h", "<cmd>Telescope heading<cr>", desc = "Навигация по заголовкам" },
 		},
+	},
+	-- {
+	-- 	"nvim-telescope/telescope-fzf-native.nvim",
+	-- 	build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("fzf")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"natecraddock/telescope-zf-native.nvim",
+	-- 	dependencies = { "nvim-telescope/telescope.nvim" },
+	-- 	config = function()
+	-- 		require("telescope").load_extension("zf-native")
+	-- 	end,
+	-- },
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- опционально, для иконок
+		config = function()
+			require("fzf-lua").setup({
+				grep = {
+					rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+				},
+				oldfiles = {
+					-- Включить текущую сессию, ближе к поведению Telescope
+					include_current_session = true,
+				},
+			})
+
+			vim.keymap.set(
+				"n",
+				"<leader>ff",
+				'<cmd>lua require("fzf-lua").files()<cr>',
+				{ desc = "Поиск файлов" }
+			)
+			vim.keymap.set("n", "<leader>fg", function()
+				-- Нахождение в окне neo-tree препятствует корректному переходу к найденному тексту
+				if vim.bo.filetype == "neo-tree" then
+					-- Находим первое обычное окно, не являющееся neo-tree, и переключаемся на него
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						local buf = vim.api.nvim_win_get_buf(win)
+						if vim.bo[buf].filetype ~= "neo-tree" then
+							vim.api.nvim_set_current_win(win)
+							break
+						end
+					end
+				end
+				-- require("fzf-lua").live_grep()
+				-- Для по умолчанию нечеткого поиска
+				require("fzf-lua").grep({ search = "" })
+			end, { desc = "Поиск текста по всем файлам" })
+			vim.keymap.set("n", "<leader>fb", '<cmd>lua require("fzf-lua").buffers()<cr>', { desc = "Буферы" })
+			vim.keymap.set(
+				"n",
+				"<leader>fv",
+				'<cmd>lua require("fzf-lua").git_files()<cr>',
+				{ desc = "Файлы Git" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>fr",
+				'<cmd>lua require("fzf-lua").oldfiles()<cr>',
+				{ desc = "Недавние файлы" }
+			)
+			vim.keymap.set("n", "<leader>fh", "<cmd>lua require('fzf-lua').help_tags()<cr>")
+			-- Поиск в текущем буфере
+			vim.keymap.set("n", "<leader>f/", "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>")
+		end,
 	},
 	-- Плагин gx.nvim отвечает за базовую функцию "открыть ссылку под курсором"
 	-- {
