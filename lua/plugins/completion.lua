@@ -2,7 +2,7 @@ return {
 	{
 		-- Автодополнение
 		"saghen/blink.cmp",
-		event = "InsertEnter",
+		event = { "InsertEnter", "CmdlineEnter" },
 		-- main is v2 development (breaking); 1.x release tags ship a prebuilt
 		-- Rust fuzzy matcher, so no build toolchain is needed.
 		version = "1.*",
@@ -95,7 +95,8 @@ return {
 				keymap = {
 					["<Tab>"] = { "select_next", "fallback" },
 					["<S-Tab>"] = { "select_prev", "fallback" },
-					["<CR>"] = { "accept_and_enter", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
+					-- ["<Esc>"] = { "hide", "fallback" },
 				},
 			},
 
