@@ -77,3 +77,6 @@ vim.g.matchup_matchparen_offscreen = { method = "popup" }
 -- -- Отображение результатов в виде всплывающего меню (pum)
 -- vim.opt.wildmode = "noselect:lastused,full"
 -- vim.opt.wildoptions = "pum"
+
+-- Новый интерфейс для командного режима
+require("vim._core.ui2").enable()
