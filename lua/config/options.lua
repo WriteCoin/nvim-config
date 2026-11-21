@@ -80,3 +80,15 @@ vim.g.matchup_matchparen_offscreen = { method = "popup" }
 
 -- Новый интерфейс для командного режима
 require("vim._core.ui2").enable()
+
+-- Для успешной установки глобальных версий инструментов
+-- Добавляем путь к shims mise в начало PATH для Neovim
+vim.env.PATH = vim.fn.expand("~/.local/share/mise/shims") .. ":" .. vim.env.PATH
+
+-- Визуальные эффекты для Markdown при Obsidian.nvim
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.conceallevel = 2
+	end,
+})

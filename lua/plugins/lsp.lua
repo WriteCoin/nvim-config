@@ -20,7 +20,7 @@ return {
 				"eslint",
 				"racket_langserver",
 				"rust_analyzer",
-				"markdown_oxide",
+				-- "markdown_oxide",
 			}
 
 			require("mason").setup()

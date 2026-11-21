@@ -51,12 +51,17 @@ return {
 			},
 
 			sources = {
+				-- default = { "lsp", "path", "snippets", "mkdnflow" },
 				default = { "lsp", "path", "snippets" },
 				per_filetype = {
 					lua = { inherit_defaults = true, "lazydev" },
 				},
 				providers = {
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+					-- mkdnflow = {
+					-- 	name = "Mkdnflow",
+					-- 	module = "mkdnflow.completion.blink",
+					-- },
 				},
 
 				-- cmdline = {
@@ -96,6 +101,10 @@ return {
 					["<Tab>"] = { "select_next", "fallback" },
 					["<S-Tab>"] = { "select_prev", "fallback" },
 					["<CR>"] = { "accept", "fallback" },
+					["<Up>"] = { "select_prev", "fallback" },
+					["<Down>"] = { "select_next", "fallback" },
+					["<Left>"] = {},
+					["<Right>"] = {},
 					-- ["<Esc>"] = { "hide", "fallback" },
 				},
 			},
