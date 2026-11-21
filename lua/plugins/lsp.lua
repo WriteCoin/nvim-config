@@ -72,6 +72,13 @@ return {
 			-- 		-- end
 			-- 	end,
 			-- })
+
+			-- Явно настроить использование rust-analyzer из rustup для избежания конфликта версий
+			vim.lsp.config("rust_analyzer", {
+				-- cmd = { vim.fn.expand("~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer") },
+				cmd = { vim.fn.expand("~/.local/share/mise/shims/rust-analyzer") },
+			})
+			vim.lsp.enable("rust_analyzer")
 		end,
 	},
 	-- {
