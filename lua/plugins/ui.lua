@@ -228,4 +228,17 @@ return {
 			})
 		end,
 	},
+	{
+		"roobert/hoversplit.nvim",
+		config = function()
+			require("hoversplit").setup({
+				key_bindings = {
+					split = "<localleader>hS",
+					vsplit = "<localleader>hV",
+					split_remain_focused = "<localleader>hs",
+					vsplit_remain_focused = "<localleader>hv",
+				},
+			})
+		end,
+	},
 }
