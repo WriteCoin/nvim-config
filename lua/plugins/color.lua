@@ -1,5 +1,5 @@
 return {
-	{
-		"itchyny/vim-highlighturl",
-	},
+	-- {
+	-- 	"itchyny/vim-highlighturl",
+	-- },
 }
